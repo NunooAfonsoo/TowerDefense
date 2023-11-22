@@ -14,6 +14,9 @@ public class TurretsButtonsUI : MonoBehaviour
     [SerializeField] private GameObject freezeTurret;
 
     [SerializeField] private IntEventSO moneyChangedEvent;
+    [SerializeField] private VoidEventSO gameWonEvent;
+    [SerializeField] private VoidEventSO gameLostEvent;
+
 
     private void Awake()
     {
@@ -27,6 +30,8 @@ public class TurretsButtonsUI : MonoBehaviour
     private void Start()
     {
         moneyChangedEvent.OnEventRaised += CheckButtonsInteractability;
+        gameWonEvent.OnEventRaised += DisableButtons;
+        gameLostEvent.OnEventRaised += DisableButtons;
     }
 
     private void SpawnTurret(GameObject turret, int cost)
@@ -39,5 +44,16 @@ public class TurretsButtonsUI : MonoBehaviour
     {
         normalTurretButton.interactable = money >= normalTurretConfig.Cost;
         freezeTurretButton.interactable = money >= freezeTurretConfig.Cost;
+    }
+
+    /// <summary>
+    /// Buttons get disabled after game over to not allow player to add more towers
+    /// </summary>
+    private void DisableButtons()
+    {
+        moneyChangedEvent.OnEventRaised -= CheckButtonsInteractability;
+
+        normalTurretButton.interactable = false;
+        freezeTurretButton.interactable = false;
     }
 }

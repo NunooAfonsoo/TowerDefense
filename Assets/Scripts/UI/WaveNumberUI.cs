@@ -14,10 +14,10 @@ public class WaveNumberUI : MonoBehaviour
 
     private void Start()
     {
-        waveEndedEvent.OnEventRaised += ChangeWaveNumber;
+        waveEndedEvent.OnEventRaised += UpdateWaveNumber;
     }
 
-    private void ChangeWaveNumber(int waveNumber)
+    private void UpdateWaveNumber(int waveNumber)
     {
         this.waveNumber.text = "Wave " + waveNumber.ToString();
     }

@@ -11,10 +11,10 @@ public class SliderUI : MonoBehaviour
     {
         slider = GetComponent<Slider>();
 
-        slider.onValueChanged.AddListener(ValueChangeCheck);
+        slider.onValueChanged.AddListener(ValueChanged);
     }
 
-    private void ValueChangeCheck(float value)
+    private void ValueChanged(float value)
     {
         waveNumberChanged.RaiseEvent((int)value);
     }

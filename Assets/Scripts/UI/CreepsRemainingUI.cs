@@ -12,11 +12,11 @@ public class CreepsRemainingUI : MonoBehaviour
     {
         creepsRemaining = GetComponent<TextMeshProUGUI>();
 
-        waveStartedEvent.OnEventRaised += ChangeCreepsRemaining;
-        remainingCreepsChangedEvent.OnEventRaised += ChangeCreepsRemaining;
+        waveStartedEvent.OnEventRaised += UpdateCreepsRemaining;
+        remainingCreepsChangedEvent.OnEventRaised += UpdateCreepsRemaining;
     }
 
-    private void ChangeCreepsRemaining(int creepsRemaining)
+    private void UpdateCreepsRemaining(int creepsRemaining)
     {
         this.creepsRemaining.text = "Creeps Remaining: " + creepsRemaining.ToString();
     }

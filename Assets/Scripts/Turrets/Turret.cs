@@ -14,14 +14,11 @@ public abstract class Turret : MonoBehaviour, ITurret
     protected float timeSinceLastShot;
 
     private new Renderer renderer;
-    private bool hasBeenPlaced;
-
 
     protected virtual void Awake()
     {
         renderer = GetComponentInChildren<Renderer>();
 
-        hasBeenPlaced = false;
         timeSinceLastShot = turretConfig.TimeBetweemShots;
     }
 
@@ -29,7 +26,7 @@ public abstract class Turret : MonoBehaviour, ITurret
     {
         timeSinceLastShot += Time.deltaTime;
 
-        if (!hasBeenPlaced || timeSinceLastShot <= turretConfig.TimeBetweemShots)
+        if (!renderer.sharedMaterial == normalMaterial || timeSinceLastShot <= turretConfig.TimeBetweemShots)
         {
             return;
         }
@@ -77,8 +74,6 @@ public abstract class Turret : MonoBehaviour, ITurret
 
     public void Place()
     {
-        hasBeenPlaced = true;
-
         renderer.sharedMaterial = normalMaterial;
     }
 
@@ -89,7 +84,7 @@ public abstract class Turret : MonoBehaviour, ITurret
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hasBeenPlaced)
+        if (renderer.sharedMaterial == normalMaterial) //The turret has been placed
         {
             return;
         }
@@ -102,7 +97,7 @@ public abstract class Turret : MonoBehaviour, ITurret
 
     private void OnTriggerExit(Collider other)
     {
-        if (hasBeenPlaced)
+        if (renderer.sharedMaterial == normalMaterial)
         {
             return;
         }

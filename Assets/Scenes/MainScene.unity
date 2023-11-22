@@ -910,6 +910,8 @@ MonoBehaviour:
   freezeTurret: {fileID: 3312728997542272041, guid: 2db840306d61e4e1d8ed7a2a17e59dc5,
     type: 3}
   moneyChangedEvent: {fileID: 11400000, guid: 3a50800234ce02848bbcfb5db08a79df, type: 2}
+  gameWonEvent: {fileID: 11400000, guid: 7ab174261abdd674d968d6baabc2b5f1, type: 2}
+  gameLostEvent: {fileID: 11400000, guid: 3e89fbbe744851d4abf89551894ec21f, type: 2}
 --- !u!1 &585258228
 GameObject:
   m_ObjectHideFlags: 0
