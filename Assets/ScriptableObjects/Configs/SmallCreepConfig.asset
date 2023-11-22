@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c507f843eb2b04884e4c6b1d4c41d0, type: 3}
+  m_Name: SmallCreepConfig
+  m_EditorClassIdentifier: 
+  Description: Config for the Small Creep
+  HP: 3
+  Speed: 6
+  Damage: 1
+  Income: 1
