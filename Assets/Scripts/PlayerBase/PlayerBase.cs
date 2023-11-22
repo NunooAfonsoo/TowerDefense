@@ -25,7 +25,7 @@ public class PlayerBase : Singleton<PlayerBase>, IDamageable
         HitPoints -= damage;
         HealthBar.value = HitPoints;
 
-        if (HitPoints == 0)
+        if (HitPoints <= 0)
         {
             gameLostEvent.RaiseEvent();
         }
